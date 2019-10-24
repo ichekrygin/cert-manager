@@ -3,7 +3,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "webhook.fullname" . }}
-  namespace: {{ .Release.Namespace | quote }}
+  namespace:
+
   labels:
     app: {{ include "webhook.name" . }}
     app.kubernetes.io/name: {{ include "webhook.name" . }}
@@ -53,16 +54,16 @@ spec:
         {{- if .Values.webhook.extraArgs }}
 {{ toYaml .Values.webhook.extraArgs | indent 10 }}
         {{- end }}
-          livenessProbe:
-            httpGet:
-              path: /livez
-              port: 6080
-              scheme: HTTP
-          readinessProbe:
-            httpGet:
-              path: /healthz
-              port: 6080
-              scheme: HTTP
+#          livenessProbe:
+#            httpGet:
+#              path: /livez
+#              port: 6080
+#              scheme: HTTP
+#          readinessProbe:
+#            httpGet:
+#              path: /healthz
+#              port: 6080
+#              scheme: HTTP
           env:
           - name: POD_NAMESPACE
             valueFrom:

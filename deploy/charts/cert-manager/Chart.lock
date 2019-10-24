@@ -1,0 +1,6 @@
+dependencies:
+- name: cainjector
+  repository: file://cainjector
+  version: v0.11.0
+digest: sha256:baf891f9792f529692912babe026c20a372baaff62d5432c566ec79fd71f8b5e
+generated: "2019-10-23T13:24:19.18816643-07:00"
